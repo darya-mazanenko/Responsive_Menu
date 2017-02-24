@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">  
+        <title>Responsive Menu Example using Flex Box</title>
+        <link href="https://fonts.googleapis.com/css?family=Oswald:400" rel="stylesheet">
+        <link rel="stylesheet" href="demo.css">        
+    </head>
+    <body>    
+        <div id="container">
+            <header class="main-header">
+                <nav class="menu">
+                    <div class="mobile-wrap">
+                        <span class="mobile-menu"></span>
+                    </div>
+                    <ul class="main-navigation">
+                        <li><a href="#" data-text="Item One">Item One</a></li>
+                        <li><a href="#" data-text="Item Two">Item Two</a></li>
+                        <li><a href="#" data-text="Item Three">Item Three</a></li>
+                        <li><a href="#" data-text="Item Four">Item Four</a></li>
+                        <li><a href="#" data-text="Item Five">Item Five</a></li>
+                    </ul>
+                </nav> 
+            </header>
+            <main>
+                <p>
+                    Responsive menu example using Flex Box. Resize the browser window to see a result. <br>
+                    <span>Refresh</span> the page after resize back to full window.
+                    <a href="../index.html">Back to description</a>
+                </p>
+            </main>                      
+            <footer>              
+                <p>Darya Mazanenka 2017</p>
+            </footer>
+        </div>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
+        <script>
+            (function() {
+                  // Toggle slide menu when click on mobile icon
+                    $(".mobile-wrap").on("click", function() {
+                        $(".main-navigation").slideToggle();
+                    });
+            })();
+        </script>
+    </body>
+</html>
