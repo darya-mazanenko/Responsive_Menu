@@ -1,0 +1,154 @@
+/*
+** This is the example of desktop menu transformation to mobile menu
+** Menu styling with Flex Box
+*/
+
+* {
+    margin: 0;
+    padding: 0;
+}
+html, body {
+    width: 100%;
+}
+body {
+    font-family: 'Oswald', sans-serif;
+    font-size: 16px;
+    color: #555;
+}
+#container {
+    max-width: 1200px;
+    margin: auto;
+}
+a {
+    color: #901717;
+    text-decoration: none;
+}
+.main-header {
+    padding: 20px 0;
+    background: #f7f7f3;
+}
+.menu {
+    border-top: 1px solid #f7f7f3;
+    border-bottom: 1px solid #f7f7f3;
+}
+/**--- Mobile menu icon styles ----**/
+.mobile-wrap {
+    display: block;
+    width: 30px;
+    height: 22px;
+    margin: auto;
+    padding: 5px;
+    border: 2px solid #a52a2a;
+    cursor: pointer;
+}
+.mobile-menu {
+    position: relative;
+    display: block;
+    width: 30px;
+    height: 2px;  
+    background: #a52a2a;
+    cursor: pointer;
+}
+.mobile-menu:before,
+.mobile-menu:after {
+    position: absolute;
+    content: "";
+    width: 30px;
+    height: 2px;
+    background: #a52a2a;
+}
+.mobile-menu:before {
+    top: 10px;
+    left: 0;
+}
+.mobile-menu:after {
+    top: 20px;
+    left: 0;
+}
+.main-navigation {
+    display: flex;
+    justify-content: space-between;
+    width: 90%;
+    margin: auto;
+    list-style: none;
+}
+li {
+    overflow: hidden;
+}
+li a {
+    position: relative;
+    display: inline-block;
+    padding: 0 10px;
+    font-size: 1.2em;
+    line-height: 2em;
+    transition: all .5s cubic-bezier(.61, .03, .32, .92);
+}
+li a:after {
+    content: attr(data-text);
+    position: absolute;
+    z-index: -1;
+    left: 0;
+    width: 100%;
+    color: #fff;
+    line-height: 2em;
+    text-align: center;
+    background: #555;
+    transform: translateY(100%);
+    transition: all .5s cubic-bezier(.61, .03, .32, .92);
+}
+li a:hover {
+    transform: translateY(-100%);
+}
+li a:hover:after {
+    transform: translateY(100%);
+}
+
+/**  -- Styles for example only -- **/
+.mobile {
+    display: none;
+    margin-top: 20px;
+    text-align: center;
+}   
+.invisible {
+    display: none;
+}
+.visible {
+    display: flex;
+}
+/** --- Main content --- **/
+main {
+    padding: 10px 0;
+    background-color: #eee;
+}
+ p {
+     padding-left: 20px;
+     font-size: 1.2em;
+     color: #444;
+}
+/** -----Button section----**/
+.buttons {
+    margin-top: 20px;
+    text-align: center;
+}
+.btn {
+    display: inline-block;
+    margin: 10px;
+    padding: 3px 5px;
+    font-family: 'Oswald', sans-serif;
+    font-size: 1.3rem;
+    color: #fff;
+    background-color: #901717;
+    border: 3px solid #901717;
+    text-transform: uppercase;
+    transition: all .5s cubic-bezier(.61, .03, .32, .92);
+}
+.btn:hover {
+    color: #901717;
+    background: none;
+    cursor: pointer;
+}
+/** ---- Footer ---- **/
+footer {
+    padding: 10px 0;
+    background: #F7F7F3;
+}
