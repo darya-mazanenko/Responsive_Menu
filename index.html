@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">  
+        <title>Responsive Menu Example</title>
+        <link href="https://fonts.googleapis.com/css?family=Oswald:400" rel="stylesheet">
+        <link rel="stylesheet" href="style.css">        
+    </head>
+    <body>    
+        <div id="container">
+            <header class="main-header">
+                <nav class="menu">
+                    <div class="mobile-wrap invisible">
+                        <span class="mobile-menu"></span>
+                    </div>
+                    <ul class="main-navigation">
+                        <li><a href="#" data-text="Item One">Item One</a></li>
+                        <li><a href="#" data-text="Item Two">Item Two</a></li>
+                        <li><a href="#" data-text="Item Three">Item Three</a></li>
+                        <li><a href="#" data-text="Item Four">Item Four</a></li>
+                        <li><a href="#" data-text="Item Five">Item Five</a></li>
+                    </ul>
+                </nav> 
+            </header>
+            <main>
+                <div class="buttons">
+                    <p>
+                    Click on buttons below to resize the container and see how it works.
+                    </p>
+                    <button class="btn desktop">Desktop</button>
+                    <button class="btn mobile">Mobile</button>
+                </div>
+                <p>
+                    <a href="demo/demo.html">Demo</a>
+                </p>
+            </main>                      
+            <footer>              
+                <p>Darya Mazanenka 2017</p>
+            </footer>
+        </div>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
+        <script>
+            (function() {
+                
+                // Container size parameters and variables
+                var tablet_width = 1024,
+                    mobile_width = 320,
+                    btn = $(".btn"),
+                    mobile_btn = $(".mobile-wrap"),
+                    main_nav = $(".main-navigation");
+                
+                // Resize a container size
+                function widthResize(containerWidth) {
+                    $("#container").animate({width: containerWidth}, 700);
+                }                
+                
+                // Check which button is clicked
+                btn.on("click", function() {
+                    if( $(this).hasClass("desktop") ) {
+                        widthResize(tablet_width);   
+                        // Now we hide mobile icon and show menu
+                        if ( main_nav.hasClass("mobile") ) {
+                            main_nav.removeClass("mobile").attr("style", " ");
+                            mobile_btn.addClass("invisible");
+                        }        
+                    } else {
+                        widthResize(mobile_width);
+                        mobile_btn.removeClass("invisible");   
+                        main_nav.addClass("mobile");
+                    }
+                });
+                
+                // Toggle slide menu when click on mobile icon
+                $(".mobile-wrap").on("click", function() {
+                    $(".main-navigation").slideToggle();
+                });
+                
+            })();
+        </script>
+    </body>
+</html>
